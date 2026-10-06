@@ -1,0 +1,36 @@
+{
+  "dataset": {
+    "name": "m3d_cap",
+    "data_root": "data/M3D-Cap",
+    "index_path": "data/M3D-Cap/M3D_Cap/M3D_Cap.json",
+    "order_path": null,
+    "train_split": "train",
+    "eval_split": "test"
+  },
+  "model": {
+    "name_or_path": "Qwen/Qwen2-VL-2B-Instruct",
+    "image_size": 224,
+    "streams": ["sparse", "original", "low_rank"],
+    "prompt": "Generate a diagnostic report from the given CT slices."
+  },
+  "slmr": {
+    "lambda": 1.0,
+    "mu": 10.0,
+    "max_iter": 3000,
+    "tolerance": 0.0001
+  },
+  "training": {
+    "epochs": 3,
+    "learning_rate": 0.00005,
+    "batch_size": 16,
+    "weight_decay": 0.01
+  },
+  "generation": {
+    "strategy": "greedy"
+  },
+  "runtime": {
+    "torch_dtype": "bfloat16",
+    "max_target_length": 512,
+    "num_workers": 0
+  }
+}
